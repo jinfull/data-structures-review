@@ -21,11 +21,26 @@
 // -----------
 
 class Node {
-
+  value = null;
+  next = null;
 }
 
 class Stack {
+  top = null;
+  bottom = null;
+  length = null;
 
+  push(node) {
+
+  }
+
+  pop() {
+
+  }
+
+  size() {
+
+  }
 }
 
 exports.Node = Node;
