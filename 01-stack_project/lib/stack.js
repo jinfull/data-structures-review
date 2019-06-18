@@ -21,25 +21,51 @@
 // -----------
 
 class Node {
-  value = null;
-  next = null;
+  constructor(val) {
+    this.value = val;
+    this.next = null;
+  }
 }
 
 class Stack {
-  top = null;
-  bottom = null;
-  length = null;
+  constructor() {
+    this.top = null;
+    this.bottom = null;
+    this.length = 0;
+  }
 
-  push(node) {
+  push(val) {
+    let newNode = new Node(val);
 
+    if (this.length === 0) {
+      this.top = newNode;
+      this.bottom = newNode;
+    } else {
+      newNode.next = this.top;
+      this.top = newNode;
+    }
+
+    return ++this.length;
   }
 
   pop() {
+    if (this.length === 0) return null;
 
+    let removedNode = this.top;
+
+    if (this.length === 1) {
+      this.top = null;
+      this.bottom = null;
+    } else {
+      this.top = removedNode.next;
+    }
+
+    this.length--;
+    return removedNode.value;
   }
 
   size() {
-
+    return this.length;
   }
 }
 
